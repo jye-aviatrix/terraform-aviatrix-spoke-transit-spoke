@@ -75,3 +75,8 @@ variable "enable_segmentation" {
   description = "Enable network domain segmentation or not"
   default = false
 }
+
+variable "enable_max_performance" {
+  type = bool
+  default = false
+}

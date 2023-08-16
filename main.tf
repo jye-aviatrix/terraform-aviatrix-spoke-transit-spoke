@@ -30,6 +30,7 @@ module "mc_spoke_dev" {
   ha_gw              = var.ha_gw
   transit_gw         = module.mc_transit.transit_gateway.gw_name
   instance_size = var.instance_size
+  enable_max_performance = false
 }
 
 
@@ -67,11 +68,12 @@ module "mc_spoke_prd" {
   region             = var.region
   cidr               = var.prd_spoke_cidr
   account            = var.account
-  # gw_name            = "${var.region_code}-spoke-pub"
+  gw_name            = "${var.region_code}-spoke-pub"
   insane_mode        = var.insane_mode
   ha_gw              = var.ha_gw
   transit_gw         = module.mc_transit.transit_gateway.gw_name
   instance_size = var.instance_size
+  enable_max_performance = false
 }
 
 
@@ -84,6 +86,9 @@ module "prd-pub" {
   subnet_id = module.mc_spoke_prd.vpc.public_subnets[0].subnet_id
   use_eip   = true
   instance_type = var.instance_size
+  # providers = {
+  #   aws = aws.ue2
+  # }
 }
 
 

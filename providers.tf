@@ -1,22 +1,28 @@
-# terraform {
-#   required_providers {
-#     aviatrix = {
-#       source  = "AviatrixSystems/aviatrix"
-#       version = "~>3.1.0"
-#     }
-#     aws = {
-#       source = "hashicorp/aws"
-#     }
-#   }
-# }
+terraform {
+  required_providers {
+    aviatrix = {
+      source  = "AviatrixSystems/aviatrix"
+      version = "~>3.1.0"
+    }
+    aws = {
+      source = "hashicorp/aws"
+    }
+  }
+}
 
-# # Configure Aviatrix provider
-# provider "aviatrix" {
-# }
+# Configure Aviatrix provider
+provider "aviatrix" {
+}
 
 
 
-# # Configure the AWS Provider
+# Configure the AWS Provider
+provider "aws" {
+  region = var.region
+}
+
+
 # provider "aws" {
-#   region = var.region
+#   alias  = "ue2"
+#   region = "us-east-2"
 # }
